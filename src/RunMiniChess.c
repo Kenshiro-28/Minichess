@@ -46,11 +46,17 @@ static MinichessErrorCode playVsHuman(NeuralNetwork *myNeuralNetwork)
 			   (returnValue==MINICHESS_HUMAN_PLAYER_INPUT_ERROR) ||
 			   (returnValue==MINICHESS_INVALID_BOARD_DIMENSIONS_ERROR))
 		{
+			int auxChar = 0;
+
 			returnValue = MINICHESS_RETURN_VALUE_OK;
 
 			printf("\n\nEnter your movement:\n\n");
 
 			int result = scanf("%d %d %d %d", &sourceColumn, &sourceRow, &targetColumn, &targetRow);
+
+			//Clean the input buffer
+			while ((auxChar!=EOF) && (auxChar!='\n'))
+				auxChar = getchar();
 
 			if (result==EOF)
 				returnValue = MINICHESS_HUMAN_PLAYER_INPUT_ERROR;

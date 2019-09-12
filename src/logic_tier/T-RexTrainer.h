@@ -18,7 +18,7 @@
 #include <math.h>
 
 //The amount of consecutive games won to consider the training completed
-#define NUMBER_OF_CONSECUTIVE_VICTORIES 1000000
+#define NUMBER_OF_CONSECUTIVE_VICTORIES 10000000
 
 //Number of bits to represent the chess piece alive status and its position expressed in binary numeral system
 #define CHESS_PIECE_STATUS_BITS ((int) (1 + ceil(log2(MINICHESS_NUMBER_OF_SQUARES))))

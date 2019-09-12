@@ -2,7 +2,7 @@
 
 This is a text-based Minichess game in which the T-Rex evolutionary neural network learns to play from scratch. After completing a workout, T-Rex plays against you through a basic text interface.
 
-T-Rex trains playing against mutant clones of itself until it reaches 1000000 consecutive victories. Winners are stored in a list, so the next winner must win not only the current winner but also the previous ones. The current winner is stored in the file **neural_network.json** and loaded in the next training. Each training is limited to 1000000 consecutive wins so that the human player does not have to wait too long.
+T-Rex trains playing against mutant clones of itself until it reaches 10000000 consecutive victories. Winners are stored in a list, so the next winner must win not only the current winner but also the previous ones. The current winner is stored in the file **neural_network.json** and loaded in the next training.
 
 ## Installing dependencies
 

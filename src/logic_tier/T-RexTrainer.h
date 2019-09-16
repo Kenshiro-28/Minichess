@@ -34,7 +34,7 @@
 
 #define NEURAL_NETWORK_NUMBER_OF_INPUTS (CHESS_PIECE_STATUS_BITS * MINICHESS_NUMBER_OF_PIECES * MINICHESS_NUMBER_OF_PLAYERS)
 
-#define NEURAL_NETWORK_NUMBER_OF_HIDDEN_LAYERS 30
+#define NEURAL_NETWORK_NUMBER_OF_HIDDEN_LAYERS 50
 
 /*
  * The output of the neural network is the name of the piece that moves and its new position.

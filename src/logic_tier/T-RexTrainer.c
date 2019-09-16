@@ -325,6 +325,9 @@ MinichessErrorCode trainNeuralNetwork(NeuralNetwork **myNeuralNetwork)
 	}
 
 	if (returnValue==MINICHESS_RETURN_VALUE_OK)
+		returnValue = addNeuralNetworkToList(bestNeuralNetwork, &myNeuralNetworkList);
+
+	if (returnValue==MINICHESS_RETURN_VALUE_OK)
 	{
 		result = createNeuralNetwork(&offspringNeuralNetwork, NEURAL_NETWORK_NUMBER_OF_INPUTS, NEURAL_NETWORK_NUMBER_OF_HIDDEN_LAYERS, NEURAL_NETWORK_NUMBER_OF_OUTPUTS);
 

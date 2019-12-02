@@ -8,9 +8,7 @@
 #ifndef SRC_LOGIC_TIER_T_REXTRAINER_H_
 #define SRC_LOGIC_TIER_T_REXTRAINER_H_
 
-#include "Minichess.h"
 #include "../presentation_tier/ConsoleManager.h"
-
 #include <T-Rex/logic_tier/NeuralNetwork.h>
 #include <T-Rex/data_tier/DataManager.h>
 #include <glib.h>

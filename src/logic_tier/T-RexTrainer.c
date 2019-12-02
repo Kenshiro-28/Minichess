@@ -348,8 +348,8 @@ MinichessErrorCode trainNeuralNetwork(NeuralNetwork **myNeuralNetwork)
 			}
 		}
 
-		//Save the neural network if it defeats the previous ones or if the training ends
-		if ((trainingCompleted || offspringWins) && (returnValue==MINICHESS_RETURN_VALUE_OK))
+		//Save the neural network when training ends
+		if (trainingCompleted && (returnValue==MINICHESS_RETURN_VALUE_OK))
 		{
 			result = saveNeuralNetwork(NEURAL_NETWORK_FILE_NAME, bestNeuralNetwork);
 

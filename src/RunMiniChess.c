@@ -8,9 +8,7 @@
  ==================================================================================
  */
 
-#include "logic_tier/Minichess.h"
 #include "logic_tier/T-RexTrainer.h"
-#include "presentation_tier/ConsoleManager.h"
 
 static MinichessErrorCode playVsHuman(NeuralNetwork *myNeuralNetwork)
 {

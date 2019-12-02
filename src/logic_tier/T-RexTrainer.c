@@ -133,33 +133,6 @@ static MinichessErrorCode parseTRexOutput(NeuronData *neuralNetworkOutput, int n
 	return returnValue;
 }
 
-MinichessErrorCode computePlayerAction(NeuralNetwork *myNeuralNetwork, Minichess *myMinichess, MinichessPlayer myPlayer, PlayerAction *myPlayerAction)
-{
-	MinichessErrorCode returnValue = MINICHESS_RETURN_VALUE_OK;
-
-	NeuronData *neuralNetworkOutput;
-
-	int numberOfOutputs;
-
-	returnValue = computeTRexInput(myMinichess, myPlayer, myNeuralNetwork);
-
-	if (returnValue==MINICHESS_RETURN_VALUE_OK)
-	{
-		NeuralNetworkErrorCode result = computeNeuralNetworkOutput(myNeuralNetwork, &neuralNetworkOutput, &numberOfOutputs);
-
-		if ((result!=NEURAL_NETWORK_RETURN_VALUE_OK) || (numberOfOutputs!=NEURAL_NETWORK_NUMBER_OF_OUTPUTS))
-			returnValue = MINICHESS_NEURAL_NETWORK_ERROR;
-	}
-
-	if (returnValue==MINICHESS_RETURN_VALUE_OK)
-		returnValue = parseTRexOutput(neuralNetworkOutput, numberOfOutputs, myPlayerAction);
-
-	if (returnValue==MINICHESS_RETURN_VALUE_OK)
-		myPlayerAction->player = myPlayer;
-
-	return returnValue;
-}
-
 static MinichessErrorCode playMinichessGame(Minichess *myMinichess, NeuralNetwork *whitePlayerNeuralNetwork, NeuralNetwork *blackPlayerNeuralNetwork, MinichessGameState *myGameState)
 {
 	MinichessErrorCode returnValue = resetMinichess(myMinichess);
@@ -422,6 +395,33 @@ MinichessErrorCode trainNeuralNetwork(NeuralNetwork **myNeuralNetwork)
 
 		g_slist_free(myNeuralNetworkList);
 	}
+
+	return returnValue;
+}
+
+MinichessErrorCode computePlayerAction(NeuralNetwork *myNeuralNetwork, Minichess *myMinichess, MinichessPlayer myPlayer, PlayerAction *myPlayerAction)
+{
+	MinichessErrorCode returnValue = MINICHESS_RETURN_VALUE_OK;
+
+	NeuronData *neuralNetworkOutput;
+
+	int numberOfOutputs;
+
+	returnValue = computeTRexInput(myMinichess, myPlayer, myNeuralNetwork);
+
+	if (returnValue==MINICHESS_RETURN_VALUE_OK)
+	{
+		NeuralNetworkErrorCode result = computeNeuralNetworkOutput(myNeuralNetwork, &neuralNetworkOutput, &numberOfOutputs);
+
+		if ((result!=NEURAL_NETWORK_RETURN_VALUE_OK) || (numberOfOutputs!=NEURAL_NETWORK_NUMBER_OF_OUTPUTS))
+			returnValue = MINICHESS_NEURAL_NETWORK_ERROR;
+	}
+
+	if (returnValue==MINICHESS_RETURN_VALUE_OK)
+		returnValue = parseTRexOutput(neuralNetworkOutput, numberOfOutputs, myPlayerAction);
+
+	if (returnValue==MINICHESS_RETURN_VALUE_OK)
+		myPlayerAction->player = myPlayer;
 
 	return returnValue;
 }

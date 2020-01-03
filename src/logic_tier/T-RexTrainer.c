@@ -348,17 +348,17 @@ MinichessErrorCode trainNeuralNetwork(NeuralNetwork **myNeuralNetwork)
 			}
 		}
 
-		//Save the neural network when training ends
-		if (trainingCompleted && (returnValue==MINICHESS_RETURN_VALUE_OK))
-		{
-			result = saveNeuralNetwork(NEURAL_NETWORK_FILE_NAME, bestNeuralNetwork);
-
-			if (result!=NEURAL_NETWORK_RETURN_VALUE_OK)
-				returnValue = MINICHESS_NEURAL_NETWORK_ERROR;
-		}
-
 		if (returnValue==MINICHESS_RETURN_VALUE_OK)
 			returnValue = printTrainingStatus(myNeuralNetworkList, consecutiveVictories);
+	}
+
+	//Save the neural network when training ends
+	if (returnValue==MINICHESS_RETURN_VALUE_OK)
+	{
+		result = saveNeuralNetwork(NEURAL_NETWORK_FILE_NAME, bestNeuralNetwork);
+
+		if (result!=NEURAL_NETWORK_RETURN_VALUE_OK)
+			returnValue = MINICHESS_NEURAL_NETWORK_ERROR;
 	}
 
 	//Destroy Minichess

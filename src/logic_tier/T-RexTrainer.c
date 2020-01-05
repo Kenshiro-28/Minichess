@@ -7,28 +7,22 @@
 
 #include "T-RexTrainer.h"
 
-static MinichessErrorCode computeChessPieceInput(NeuralNetwork *myNeuralNetwork, int neuralNetworkInputIndex, bool isAlive, int numberOfSquare)
+static MinichessErrorCode computeChessPieceInput(NeuralNetwork *myNeuralNetwork, int neuralNetworkInputIndex, int numberOfSquare)
 {
 	MinichessErrorCode returnValue = MINICHESS_RETURN_VALUE_OK;
 
 	NeuronData myChessPieceStatus[CHESS_PIECE_STATUS_BITS];
 
-	for (int i=0; i<CHESS_PIECE_STATUS_BITS; i++)
-		myChessPieceStatus[i] = NEURON_DATA_ZERO;
+	numberOfSquare++;
 
-	if (isAlive)
+	for (int i = CHESS_PIECE_STATUS_BITS - 1; i >= 0; i--)
 	{
-		myChessPieceStatus[CHESS_PIECE_STATUS_BITS - 1] = NEURON_DATA_ONE;
+		int bit = numberOfSquare >> i;
 
-		for (int i = CHESS_PIECE_STATUS_BITS - 2; i >= 0; i--)
-		{
-			int bit = numberOfSquare >> i;
-
-			if (bit & 1)
-				myChessPieceStatus[i] = NEURON_DATA_ONE;
-			else
-				myChessPieceStatus[i] = NEURON_DATA_ZERO;
-		}
+		if (bit & 1)
+			myChessPieceStatus[i] = NEURON_DATA_ONE;
+		else
+			myChessPieceStatus[i] = NEURON_DATA_ZERO;
 	}
 
 	int bitNumber = CHESS_PIECE_STATUS_BITS - 1;
@@ -76,7 +70,7 @@ static MinichessErrorCode computeTRexInput(Minichess *myMinichess, MinichessPlay
 						fixedIndex = neuralNetworkInputIndex - (CHESS_PIECE_STATUS_BITS * MINICHESS_NUMBER_OF_PIECES);
 				}
 
-				returnValue = computeChessPieceInput(myNeuralNetwork, fixedIndex, myChessPiece.isAlive, numberOfSquare);
+				returnValue = computeChessPieceInput(myNeuralNetwork, fixedIndex, numberOfSquare);
 			}
 
 			if ((neuralNetworkInputIndex<NEURAL_NETWORK_NUMBER_OF_INPUTS) && (returnValue==MINICHESS_RETURN_VALUE_OK))

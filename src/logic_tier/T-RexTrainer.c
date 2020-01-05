@@ -7,13 +7,16 @@
 
 #include "T-RexTrainer.h"
 
-static MinichessErrorCode computeChessPieceInput(NeuralNetwork *myNeuralNetwork, int neuralNetworkInputIndex, int numberOfSquare)
+static MinichessErrorCode computeChessPieceInput(NeuralNetwork *myNeuralNetwork, int neuralNetworkInputIndex, bool isAlive, int numberOfSquare)
 {
 	MinichessErrorCode returnValue = MINICHESS_RETURN_VALUE_OK;
 
 	NeuronData myChessPieceStatus[CHESS_PIECE_STATUS_BITS];
 
-	numberOfSquare++;
+	if (isAlive)
+		numberOfSquare++;
+	else
+		numberOfSquare = 0;
 
 	for (int i = CHESS_PIECE_STATUS_BITS - 1; i >= 0; i--)
 	{
@@ -70,7 +73,7 @@ static MinichessErrorCode computeTRexInput(Minichess *myMinichess, MinichessPlay
 						fixedIndex = neuralNetworkInputIndex - (CHESS_PIECE_STATUS_BITS * MINICHESS_NUMBER_OF_PIECES);
 				}
 
-				returnValue = computeChessPieceInput(myNeuralNetwork, fixedIndex, numberOfSquare);
+				returnValue = computeChessPieceInput(myNeuralNetwork, fixedIndex, myChessPiece.isAlive, numberOfSquare);
 			}
 
 			if ((neuralNetworkInputIndex<NEURAL_NETWORK_NUMBER_OF_INPUTS) && (returnValue==MINICHESS_RETURN_VALUE_OK))

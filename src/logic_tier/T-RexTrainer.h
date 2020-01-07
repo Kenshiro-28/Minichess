@@ -16,7 +16,7 @@
 #include <math.h>
 
 //The amount of consecutive games won to consider the training completed
-#define NUMBER_OF_CONSECUTIVE_VICTORIES 10000000
+#define NUMBER_OF_CONSECUTIVE_VICTORIES 100000000
 
 /*
  *Number of bits to represent the chess piece position expressed in binary numeral system.
@@ -45,7 +45,7 @@
  * The total number of outputs is 9.
 */
 
-#define NEURAL_NETWORK_NUMBER_OF_OUTPUTS (CHESS_PIECE_NAME_BITS + CHESS_PIECE_STATUS_BITS - 1)
+#define NEURAL_NETWORK_NUMBER_OF_OUTPUTS (CHESS_PIECE_NAME_BITS + CHESS_PIECE_STATUS_BITS)
 
 #define NEURAL_NETWORK_FILE_NAME "neural_network.json"
 

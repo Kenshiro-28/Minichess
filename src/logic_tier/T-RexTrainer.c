@@ -108,7 +108,7 @@ static MinichessErrorCode parseTRexOutput(NeuronData *neuralNetworkOutput, int n
 
 	while (neuralNetworkOutputIndex < numberOfOutputs)
 	{
-		int power = CHESS_PIECE_STATUS_BITS - 2 - (neuralNetworkOutputIndex - CHESS_PIECE_NAME_BITS);
+		int power = CHESS_PIECE_STATUS_BITS - 1 - (neuralNetworkOutputIndex - CHESS_PIECE_NAME_BITS);
 
 		if (neuralNetworkOutput[neuralNetworkOutputIndex]==NEURON_DATA_ONE)
 			targetSquare = targetSquare + pow(2, power);

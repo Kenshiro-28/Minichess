@@ -15,15 +15,16 @@ Copy the generated file **libT-Rex.so** in the folder /usr/local/lib
 Copy the header files in /usr/local/include in a folder named T-Rex:
 
 ``` 
- T-Rex
-    ├── data_tier
-    │   └── DataManager.h
-    ├── logic_tier
-    │   ├── NeuralNetwork.h
-    │   └── Neuron.h
-    └── presentation_tier
-        └── ConsoleManager.h
+T-Rex
+   ├── data_tier
+   │   └── DataManager.h
+   ├── logic_tier
+   │   ├── NeuralLayer.h
+   │   └── NeuralNetwork.h
+   └── presentation_tier
+       └── ConsoleManager.h
 ```
+
 ## Building
 
 Run this command to build the program:

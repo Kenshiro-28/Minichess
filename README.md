@@ -41,7 +41,7 @@ https://github.com/Kenshiro-28/T-Rex
 
 Copy the generated file **libT-Rex.so** in the folder /usr/local/lib
 
-Copy the header files in /usr/local/include in a folder named T-Rex:
+Copy the header files in the folder /usr/local/include/T-Rex
 
 ``` 
 T-Rex

@@ -2,13 +2,36 @@
 
 This is a Minichess artificial intelligence based on the T-Rex evolutionary neural network. It trains playing the game against itself without any prior knowledge except the rules of the game. During training, the winners are stored in a list, so each new winner must win not only the current winner but also the previous ones. After completing the training, the program plays against you through a basic text interface.
 
-![5×5 chess](minichess.png)
+![Minichess](minichess.png)
 
 ## Game information
 
 Minichess is a family of chess variants played with regular chess pieces and standard rules, but on a smaller board. The motivation for these variants is to make the game simpler and shorter than the standard chess. The first chess-like game implemented on a computer was a 6×6 chess variant Los Alamos chess. The low memory capacity of the early days computer required reduced board size and smaller number of pieces to make the game implementable on a computer.
 
 A board needs to be five squares wide to contain all kinds of chess pieces on the first row. In 1969, Martin Gardner suggested a chess variant on 5×5 board in which all chess moves, including pawn double-move, en-passant capture as well as castling can be made. Later AISE (Associazione Italiana Scacchi Eterodossi, "Italian Heterodox Chess Association") abandoned pawn double-move and castling.
+
+## Neural network information
+
+T-Rex is an evolutionary neural network. It learns by adjusting the strength of the connection weights by mutation and selection. The programmer must define the problem to solve with a scoring system so that T-Rex can evolve gradually until finding the optimal solution.
+
+Main features:
+
+- Binary feedforward neural network
+- Configurable number of inputs, hidden layers and outputs
+- Developed using object-oriented programming
+- Fast, robust and portable
+
+### Input layer
+
+The input layer receives the status of the player's pieces and then the opponent's pieces. For a 5 x 5 board there are 5 inputs per piece. Since there are 10 pieces per player and there are 2 players, the total number of inputs is 100. 
+
+### Hidden layers
+
+The neural network has 100 hidden layers. The T-Rex architecture states that the number of neurons in each hidden layer is set as the number of input neurons so they have 100 neurons.
+
+### Output layer
+
+The output layer provides the code of the piece that moves and its new position. For a 5 x 5 board there are 4 outputs for the code of the piece and 5 for its new position. The total number of outputs is 9.
 
 ## Installing dependencies
 

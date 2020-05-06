@@ -30,7 +30,7 @@
 #define CHESS_PIECE_NAME_BITS ((int) ceil(log2(MINICHESS_NUMBER_OF_PIECES)))
 
 /*
- * The input layer has the status of the player's pieces and then the opponent's pieces.
+ * The input layer receives the status of the player's pieces and then the opponent's pieces.
  * For a 5 x 5 board there are 5 inputs per piece. Since there are 10 pieces per player
  * and there are 2 players, the total number of inputs is 100.
  */
@@ -40,8 +40,8 @@
 #define NEURAL_NETWORK_NUMBER_OF_HIDDEN_LAYERS 100
 
 /*
- * The output of the neural network is the name of the piece that moves and its new position.
- * For a 5 x 5 board there are 4 outputs for the name of the piece and 5 for its new position.
+ * The output layer provides the code of the piece that moves and its new position.
+ * For a 5 x 5 board there are 4 outputs for the code of the piece and 5 for its new position.
  * The total number of outputs is 9.
 */
 

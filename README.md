@@ -70,6 +70,8 @@ Run this command to start the program:
 $ ./Minichess
 ```
 
+This project includes a trained neural network. Running the program will skip the training phase if there is a neural network file in the same folder. To train a new neural network, delete the file **neural_network.json**.
+
 ## Cleaning
 
 Run this command to delete the generated files:

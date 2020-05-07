@@ -57,6 +57,3 @@ Release/
 
 # Binary file
 Minichess
-
-# Neural network
-*.json

@@ -15,9 +15,6 @@
 #include <sys/stat.h>
 #include <math.h>
 
-//The amount of consecutive games won to consider the training completed
-#define MAX_CONSECUTIVE_VICTORIES 100000000
-
 /*
  *Number of bits to represent the chess piece position expressed in binary numeral system.
  *The position is increased by one, so the number zero means that the chess piece is dead.
@@ -46,6 +43,9 @@
 */
 
 #define NEURAL_NETWORK_NUMBER_OF_OUTPUTS (CHESS_PIECE_NAME_BITS + CHESS_PIECE_STATUS_BITS)
+
+//The amount of consecutive games won to consider the training completed
+#define MAX_CONSECUTIVE_VICTORIES (NEURAL_NETWORK_NUMBER_OF_INPUTS * (NEURAL_NETWORK_NUMBER_OF_INPUTS * NEURAL_NETWORK_NUMBER_OF_HIDDEN_LAYERS + NEURAL_NETWORK_NUMBER_OF_OUTPUTS))
 
 #define NEURAL_NETWORK_FILE_NAME "neural_network.json"
 

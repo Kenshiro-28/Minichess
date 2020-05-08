@@ -95,7 +95,7 @@ static MinichessErrorCode playVsHuman(NeuralNetwork *myNeuralNetwork)
 			returnValue = executePlayerAction(myMinichess, myPlayerAction);
 
 		if ((returnValue==MINICHESS_INVALID_MOVEMENT_ERROR) || (returnValue==MINICHESS_INVALID_PIECE_ERROR))
-			printf("\n[T-REX] I don't know how to move in this situation, I need more training\n");
+			printf("\n[T-REX] I don't know how to move in this situation\n");
 
 		if (returnValue==MINICHESS_RETURN_VALUE_OK)
 			returnValue = invertChessboard(myMinichess);

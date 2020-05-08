@@ -10,6 +10,8 @@
 
 #include "logic_tier/T-RexTrainer.h"
 
+#define T_REX_WAIT_SECONDS 1
+
 static MinichessErrorCode playVsHuman(NeuralNetwork *myNeuralNetwork)
 {
 	Minichess *myMinichess;
@@ -78,6 +80,8 @@ static MinichessErrorCode playVsHuman(NeuralNetwork *myNeuralNetwork)
 
 		if (returnValue==MINICHESS_RETURN_VALUE_OK)
 			returnValue = printChessboard(myMinichess);
+
+		sleep(T_REX_WAIT_SECONDS);
 
 		//T-Rex player input (black player)
 

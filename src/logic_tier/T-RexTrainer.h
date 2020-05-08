@@ -16,7 +16,7 @@
 #include <math.h>
 
 //The amount of consecutive games won to consider the training completed
-#define NUMBER_OF_CONSECUTIVE_VICTORIES 100000000
+#define MAX_CONSECUTIVE_VICTORIES 100000000
 
 /*
  *Number of bits to represent the chess piece position expressed in binary numeral system.

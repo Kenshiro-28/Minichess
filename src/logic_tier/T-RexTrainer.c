@@ -337,7 +337,7 @@ MinichessErrorCode trainNeuralNetwork(NeuralNetwork **myNeuralNetwork)
 			{
 				consecutiveVictories++;
 
-				if (consecutiveVictories>=NUMBER_OF_CONSECUTIVE_VICTORIES)
+				if (consecutiveVictories>=MAX_CONSECUTIVE_VICTORIES)
 				{
 					trainingCompleted = true;
 					*myNeuralNetwork = bestNeuralNetwork;
@@ -346,7 +346,7 @@ MinichessErrorCode trainNeuralNetwork(NeuralNetwork **myNeuralNetwork)
 		}
 
 		if (returnValue==MINICHESS_RETURN_VALUE_OK)
-			returnValue = printTrainingStatus(myNeuralNetworkList, consecutiveVictories);
+			returnValue = printTrainingStatus(myNeuralNetworkList, consecutiveVictories, MAX_CONSECUTIVE_VICTORIES);
 	}
 
 	//Save the neural network when training ends

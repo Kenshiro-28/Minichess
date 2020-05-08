@@ -14,7 +14,7 @@
 #include <glib.h>
 
 MinichessErrorCode printChessboard(Minichess *myMinichess);
-MinichessErrorCode printTrainingStatus(GSList *myNeuralNetworkList, int consecutiveVictories);
+MinichessErrorCode printTrainingStatus(GSList *myNeuralNetworkList, int consecutiveVictories, int maxConsecutiveVictories);
 MinichessErrorCode printGameData(Minichess *myMinichess);
 void printNewGameMessage();
 void printErrorMessage(MinichessErrorCode errorCode);

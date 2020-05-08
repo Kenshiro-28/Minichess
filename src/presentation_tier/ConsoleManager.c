@@ -150,7 +150,7 @@ MinichessErrorCode printChessboard(Minichess *myMinichess)
 	return returnValue;
 }
 
-MinichessErrorCode printTrainingStatus(GSList *myNeuralNetworkList, int consecutiveVictories)
+MinichessErrorCode printTrainingStatus(GSList *myNeuralNetworkList, int consecutiveVictories, int maxConsecutiveVictories)
 {
 	MinichessErrorCode returnValue = MINICHESS_RETURN_VALUE_OK;
 
@@ -161,7 +161,7 @@ MinichessErrorCode printTrainingStatus(GSList *myNeuralNetworkList, int consecut
 	{
 		int listSize = g_slist_length(myNeuralNetworkList);
 
-		printf("\n\n Consecutive victories: %d\n", consecutiveVictories);
+		printf("\n\n Consecutive victories: %d / %d\n", consecutiveVictories, maxConsecutiveVictories);
 		printf("\n List size: %d\n\n", listSize);
 	}
 

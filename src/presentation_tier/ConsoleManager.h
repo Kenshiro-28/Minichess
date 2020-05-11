@@ -17,6 +17,10 @@ MinichessErrorCode printChessboard(Minichess *myMinichess);
 MinichessErrorCode printTrainingStatus(GSList *myNeuralNetworkList, int consecutiveVictories, int maxConsecutiveVictories);
 MinichessErrorCode printGameData(Minichess *myMinichess);
 void printNewGameMessage();
+void printTrainingCompletedMessage();
+void printHowToPlayMessage();
+void printEnterYourMovementMessage();
+void printTRexSurrenderMessage();
 void printErrorMessage(MinichessErrorCode errorCode);
 
 #endif /* SRC_PRESENTATION_TIER_CONSOLEMANAGER_H_ */

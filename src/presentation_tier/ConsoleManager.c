@@ -219,6 +219,27 @@ void printNewGameMessage()
 	printf("\n\n    ------- NEW GAME -------\n");
 }
 
+void printTrainingCompletedMessage()
+{
+	printf("\n\n ----- Training completed -----\n\n");
+}
+
+void printHowToPlayMessage()
+{
+	printf("\n Hint: enter your movement as source column, source row, target column and target row separated by a blank space");
+	printf("\n Column values: 0 - %d, row values: 0 - %d\n", MINICHESS_NUMBER_OF_COLUMNS - 1, MINICHESS_NUMBER_OF_ROWS - 1);
+}
+
+void printEnterYourMovementMessage()
+{
+	printf("\n\nEnter your movement:\n\n");
+}
+
+void printTRexSurrenderMessage()
+{
+	printf("\n[T-REX] I don't know how to move in this situation\n");
+}
+
 void printErrorMessage(MinichessErrorCode errorCode)
 {
 	printf("\n\n[ERROR] Error code: %d\n\n", errorCode);

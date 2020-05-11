@@ -9,6 +9,7 @@
  */
 
 #include "logic_tier/T-RexTrainer.h"
+#include "presentation_tier/ConsoleManager.h"
 
 #define T_REX_WAIT_SECONDS 1
 
@@ -21,11 +22,10 @@ static MinichessErrorCode playVsHuman(NeuralNetwork *myNeuralNetwork)
 
 	if (returnValue==MINICHESS_RETURN_VALUE_OK)
 	{
-		printf("\n\n ----- Training completed -----\n\n");
-		printf("\n Hint: enter your movement as source column, source row, target column and target row separated by a blank space");
-		printf("\n Column values: 0 - %d, row values: 0 - %d\n", MINICHESS_NUMBER_OF_COLUMNS - 1, MINICHESS_NUMBER_OF_ROWS - 1);
-
+		printTrainingCompletedMessage();
+		printHowToPlayMessage();
 		printNewGameMessage();
+
 		returnValue = printChessboard(myMinichess);
 	}
 
@@ -50,7 +50,7 @@ static MinichessErrorCode playVsHuman(NeuralNetwork *myNeuralNetwork)
 
 			returnValue = MINICHESS_RETURN_VALUE_OK;
 
-			printf("\n\nEnter your movement:\n\n");
+			printEnterYourMovementMessage();
 
 			int result = scanf("%d %d %d %d", &sourceColumn, &sourceRow, &targetColumn, &targetRow);
 
@@ -95,7 +95,7 @@ static MinichessErrorCode playVsHuman(NeuralNetwork *myNeuralNetwork)
 			returnValue = executePlayerAction(myMinichess, myPlayerAction);
 
 		if ((returnValue==MINICHESS_INVALID_MOVEMENT_ERROR) || (returnValue==MINICHESS_INVALID_PIECE_ERROR))
-			printf("\n[T-REX] I don't know how to move in this situation\n");
+			printTRexSurrenderMessage();
 
 		if (returnValue==MINICHESS_RETURN_VALUE_OK)
 			returnValue = invertChessboard(myMinichess);

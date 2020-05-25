@@ -62,6 +62,12 @@ https://github.com/Kenshiro-28/T-Rex
 
 Copy the generated file **libT-Rex.so** in the folder /usr/local/lib
 
+Run this command to add the folder to the library path:
+
+```
+$ sudo ldconfig /usr/local/lib
+```
+
 Copy the header files in the folder /usr/local/include/T-Rex
 
 ``` 

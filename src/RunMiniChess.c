@@ -4,7 +4,7 @@
  Author      : Kenshiro
  Version     : 1.00
  Copyright   : GNU General Public License (GPLv3)
- Description : T-Rex learns from scratch to play Minichess
+ Description : Minichess AI based on the T-Rex evolutionary neural network
  ==================================================================================
  */
 

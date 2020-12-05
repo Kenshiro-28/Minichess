@@ -267,7 +267,7 @@ MinichessErrorCode trainNeuralNetwork(NeuralNetwork **myNeuralNetwork)
 	NeuralNetworkErrorCode result;
 
 	bool trainingCompleted = false;
-
+	bool neuralNetworkFileFound = false;
 	int consecutiveVictories = 0;
 
 	//The list of neural networks that have defeated the previous ones
@@ -286,7 +286,11 @@ MinichessErrorCode trainNeuralNetwork(NeuralNetwork **myNeuralNetwork)
 		struct stat fileStatus;
 
 		if (!stat(NEURAL_NETWORK_FILE_NAME, &fileStatus))
+		{
+			neuralNetworkFileFound = true;
+			trainingCompleted = true;
 			result = loadNeuralNetwork(NEURAL_NETWORK_FILE_NAME, &bestNeuralNetwork);
+		}
 		else
 			result = createNeuralNetwork(&bestNeuralNetwork, NEURAL_NETWORK_NUMBER_OF_INPUTS, NEURAL_NETWORK_NUMBER_OF_HIDDEN_LAYERS, NEURAL_NETWORK_NUMBER_OF_OUTPUTS);
 
@@ -348,9 +352,9 @@ MinichessErrorCode trainNeuralNetwork(NeuralNetwork **myNeuralNetwork)
 		if (returnValue==MINICHESS_RETURN_VALUE_OK)
 			returnValue = printTrainingStatus(myNeuralNetworkList, consecutiveVictories, MAX_CONSECUTIVE_VICTORIES);
 	}
-
+	
 	//Save the neural network when training ends
-	if (returnValue==MINICHESS_RETURN_VALUE_OK)
+	if ((!neuralNetworkFileFound) && (returnValue==MINICHESS_RETURN_VALUE_OK))
 	{
 		result = saveNeuralNetwork(NEURAL_NETWORK_FILE_NAME, bestNeuralNetwork);
 

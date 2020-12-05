@@ -48,7 +48,7 @@ The input layer receives the status of the player's pieces and then the opponent
 
 ### Hidden layers
 
-The neural network has 100 hidden layers. The T-Rex architecture states that the number of neurons in each hidden layer is set as the number of input neurons so they have 100 neurons.
+The neural network has 1000 hidden layers. The T-Rex architecture states that the number of neurons in each hidden layer is set as the number of input neurons so they have 100 neurons.
 
 ### Output layer
 
